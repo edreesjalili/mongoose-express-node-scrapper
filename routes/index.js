@@ -5,7 +5,6 @@ const articles = require('./articles');
 router.use('/api', api);
 router.use('/articles', articles);
 
-
 router.use('/', (req, res) => res.redirect('/articles'));
 router.use('*', (req, res) => res.render('error'));
 
