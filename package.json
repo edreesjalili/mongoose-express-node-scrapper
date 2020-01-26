@@ -1,6 +1,6 @@
 {
   "author": "Edrees Jalili",
-  "name": "node-mongoose",
+  "name": "mongoose-express-node-scraper",
   "version": "0.0.0",
   "scripts": {
     "start": "node app.js",
