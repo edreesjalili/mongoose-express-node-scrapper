@@ -2,7 +2,6 @@
   "author": "Edrees Jalili",
   "name": "node-mongoose",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "start": "node app.js",
     "start:dev": "nodemon app.js"
@@ -19,25 +18,10 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.20.0",
-    "nodemon": "^2.0.2"
-  },
-  "eslintConfig": {
-    "extends": "airbnb-base/legacy",
-    "parserOptions": {
-      "ecmaVersion": 2017,
-      "sourceType": "module"
-    },
-    "env": {
-      "es6": true
-    },
-    "rules": {
-      "max-len": [
-        "error",
-        {
-          "code": 120
-        }
-      ]
-    }
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1"
   }
 }

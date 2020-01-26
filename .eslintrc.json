@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb-base/legacy", "plugin:prettier/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
