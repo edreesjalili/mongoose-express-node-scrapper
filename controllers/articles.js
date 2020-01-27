@@ -1,7 +1,12 @@
-const handleIndex = (req, res) => {
-  res.render('articles/index', { title: 'Articles' });
-};
+const { Article } = require('../models')
+
+const getAll = async (req, res) => {
+  const articles = await Article.find({})
+    .limit(100)
+    .lean()
+  res.render('articles/index', { title: 'Articles', articles })
+}
 
 module.exports = {
-  handleIndex
-};
+  getAll,
+}

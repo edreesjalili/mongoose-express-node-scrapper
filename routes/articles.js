@@ -1,10 +1,7 @@
-const router = require('express').Router();
+const router = require('express').Router()
 
-const {
-  handleIndex
-} = require('../controllers/articles');
+const { getAll } = require('../controllers/articles')
 
-router
-  .get('/', handleIndex);
+router.get('/', getAll)
 
-module.exports = router;
+module.exports = router
