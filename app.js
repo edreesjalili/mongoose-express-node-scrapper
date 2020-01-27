@@ -5,6 +5,7 @@ const logger = require('morgan')
 const exphbs = require('express-handlebars')
 const Handlebars = require('handlebars')
 const mongoose = require('mongoose')
+const moment = require('moment')
 
 // load .env
 require('dotenv').config()
@@ -23,6 +24,10 @@ app.engine(
         const { title } = context.data.root
         const active = title === match ? 'active' : ''
         return new Handlebars.SafeString(`<a class="nav-link ${active}" href="${href}">${match}</a>`)
+      },
+      dateLong(context) {
+        const { value } = context.hash
+        return moment(value).format('dddd, MMMM Do YYYY, h:mm:ss a')
       },
     },
   })

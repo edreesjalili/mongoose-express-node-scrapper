@@ -4,7 +4,7 @@
     <p class="card-text">{{summary}}</p>
   </div>
   <div class="card-footer text-muted">
-    <button class="btn btn-link">View Notes</button>
+    <a href="/articles/{{_id}}" class="btn btn-link">View Notes</a>
     <button class="btn btn-outline-info float-right" onclick="Articles.save('{{_id}}', {{saved}})">
       {{#if saved}} Undo Save {{else}} Save {{/if}}
     </button>

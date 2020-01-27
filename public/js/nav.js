@@ -19,7 +19,7 @@
       console.error(error)
     }
 
-    window.location.reload()
+    window.location = '/'
   }
 
   clearButton.onclick = async () => {
@@ -32,6 +32,6 @@
       console.error(error)
     }
 
-    window.location.reload()
+    window.location = '/'
   }
 })()
