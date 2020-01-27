@@ -19,10 +19,10 @@ app.engine(
     extname: '.hbs',
     helpers: {
       navLink(context) {
-        const { href } = context.hash
-        const { view } = context.data.exphbs
-        const active = view.replace('/index') === href ? 'active' : ''
-        return new Handlebars.SafeString(`class="nav-link ${active}" href="/${href}"`)
+        const { href, match } = context.hash
+        const { title } = context.data.root
+        const active = title === match ? 'active' : ''
+        return new Handlebars.SafeString(`<a class="nav-link ${active}" href="${href}">${match}</a>`)
       },
     },
   })
@@ -38,6 +38,7 @@ app.use(
     extended: false,
   })
 )
+app.use(express.static(path.join(__dirname, 'public')))
 
 // route setup
 app.use(require('./routes'))

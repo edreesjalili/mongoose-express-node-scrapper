@@ -3,42 +3,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a {{navLink href='articles'}}>Articles <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        {{navLink href='/articles' match='Articles'}}
       </li>
       <li class="nav-item">
-        <a {{navLink href='articles/saved'}}>Saved Articles</a>
+        {{navLink href='/articles/saved' match='Saved Articles'}}
       </li>
     </ul>
     <button id="scrape" class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Scrape</button>
     <button id="clear" class="btn btn-outline-danger my-2 my-sm-0" type="submit">Clear</button>
   </div>
 </nav>
-<script defer>
-  document.addEventListener('DOMContentLoaded', function () {
-    const scrapeButton = document.getElementById('scrape');
-
-    function addSpinner(element) {
-      element.innerHTML = '';
-      const spinner = document.createElement('div');
-      spinner.classList.add('spinner-border', 'text-success');
-      element.appendChild(spinner)
-    }
-
-    scrapeButton.onclick = async () => {
-      addSpinner(scrapeButton)
-
-      try {
-        await axios.get('/api/scrape');
-      } catch (error) {
-        alert('Failed to scrape!')
-        console.error(error)
-      }
-
-      window.location.reload();
-    };
-
-
-    document.getElementById('clear').onclick = () => console.log('clear');
-  });
-</script>
