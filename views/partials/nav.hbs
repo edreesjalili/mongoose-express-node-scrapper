@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">scrappr</a>
+  <a class="navbar-brand" href="#">scrapr</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -16,7 +16,29 @@
 </nav>
 <script defer>
   document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('scrape').onclick = () => console.log('scrape');
+    const scrapeButton = document.getElementById('scrape');
+
+    function addSpinner(element) {
+      element.innerHTML = '';
+      const spinner = document.createElement('div');
+      spinner.classList.add('spinner-border', 'text-success');
+      element.appendChild(spinner)
+    }
+
+    scrapeButton.onclick = async () => {
+      addSpinner(scrapeButton)
+
+      try {
+        await axios.get('/api/scrape');
+      } catch (error) {
+        alert('Failed to scrape!')
+        console.error(error)
+      }
+
+      window.location.reload();
+    };
+
+
     document.getElementById('clear').onclick = () => console.log('clear');
   });
 </script>
